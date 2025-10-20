@@ -1,0 +1,33 @@
+name: core_data
+description: "A new Flutter module project."
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.2"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  shared_dependencies:
+  core_database:
+  core_network:
+  core_common:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.4
+
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.app.core.data
+    iosBundleIdentifier: com.app.core.data

@@ -1,0 +1,75 @@
+name: cookbook
+description: "A new Flutter project."
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.2"
+
+workspace:
+  - modules/feature/auth
+  - modules/feature/home
+  - modules/ds
+  - modules/shared_dependencies
+  - modules/core/network
+  - modules/core/common
+  - modules/core/database
+  - modules/core/data
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Features
+  auth:
+  home:
+  shared_dependencies:
+  core_database:
+  core_network:
+  core_common:
+  core_data:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.8.0
+  json_serializable: ^6.11.1
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/docs/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Thin-BETA.otf
+          weight: 100
+        - asset: assets/fonts/inter/Inter-ExtraLight-BETA.otf
+          weight: 200
+        - asset: assets/fonts/inter/Inter-Light-BETA.otf
+          weight: 300
+        - asset: assets/fonts/inter/Inter-Regular.otf
+          weight: 400
+        - asset: assets/fonts/inter/Inter-Medium.otf
+          weight: 500
+        - asset: assets/fonts/inter/Inter-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/inter/Inter-Bold.otf
+          weight: 700
+        - asset: assets/fonts/inter/Inter-ExtraBold.otf
+          weight: 800
+        - asset: assets/fonts/inter/Inter-Black.otf
+          weight: 900
+
+scripts:
+  run: flutter run --dart-define-from-file=.env.development.json

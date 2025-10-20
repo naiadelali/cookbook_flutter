@@ -1,0 +1,647 @@
+{
+  "dim": {
+    "zIndex": {
+      "auto": {
+        "value": "auto",
+        "type": "text"
+      },
+      "none": {
+        "value": "0rem",
+        "type": "dimension"
+      },
+      "x10": {
+        "value": "0.625rem",
+        "type": "dimension"
+      },
+      "x20": {
+        "value": "1.25rem",
+        "type": "dimension"
+      },
+      "x30": {
+        "value": "1.875rem",
+        "type": "dimension"
+      },
+      "x40": {
+        "value": "2.5rem",
+        "type": "dimension"
+      },
+      "x50": {
+        "value": "3.125rem",
+        "type": "dimension"
+      }
+    },
+    "radius": {
+      "global": {
+        "x2": {
+          "value": "0.125rem",
+          "type": "dimension"
+        },
+        "x4": {
+          "value": "0.25rem",
+          "type": "dimension"
+        },
+        "x6": {
+          "value": "0.375rem",
+          "type": "dimension"
+        },
+        "x8": {
+          "value": "0.5rem",
+          "type": "dimension"
+        },
+        "x12": {
+          "value": "0.75rem",
+          "type": "dimension"
+        },
+        "x16": {
+          "value": "1rem",
+          "type": "dimension"
+        },
+        "x24": {
+          "value": "1.5rem",
+          "type": "dimension"
+        },
+        "full": {
+          "value": "624.938rem",
+          "type": "dimension"
+        },
+        "none": {
+          "value": "0rem",
+          "type": "dimension"
+        }
+      },
+      "custom": {
+        "buttons": {
+          "value": "{dim.radius.global.x6}",
+          "type": "dimension"
+        },
+        "fields": {
+          "value": "{dim.radius.global.x6}",
+          "type": "dimension"
+        },
+        "tags": {
+          "value": "{dim.radius.global.full}",
+          "type": "dimension"
+        },
+        "drops": {
+          "value": "{dim.radius.global.x8}",
+          "type": "dimension"
+        },
+        "containers": {
+          "value": "{dim.radius.global.x8}",
+          "type": "dimension"
+        },
+        "dialogs": {
+          "value": "{dim.radius.global.x8}",
+          "type": "dimension"
+        }
+      }
+    },
+    "border": {
+      "none": {
+        "value": "0rem",
+        "type": "dimension"
+      },
+      "x2": {
+        "value": "0.125rem",
+        "type": "dimension"
+      },
+      "x4": {
+        "value": "0.25rem",
+        "type": "dimension"
+      },
+      "x8": {
+        "value": "0.5rem",
+        "type": "dimension"
+      },
+      "x3": {
+        "value": "0.188rem",
+        "type": "dimension"
+      },
+      "x1": {
+        "value": "0.062rem",
+        "type": "dimension"
+      },
+      "default": {
+        "value": "0.087rem",
+        "type": "dimension"
+      }
+    },
+    "spacing": {
+      "global": {
+        "none": {
+          "value": "0rem",
+          "type": "dimension"
+        },
+        "x4": {
+          "value": "0.25rem",
+          "type": "dimension"
+        },
+        "x8": {
+          "value": "0.5rem",
+          "type": "dimension"
+        },
+        "x12": {
+          "value": "0.75rem",
+          "type": "dimension"
+        },
+        "x16": {
+          "value": "1rem",
+          "type": "dimension"
+        },
+        "x20": {
+          "value": "1.25rem",
+          "type": "dimension"
+        },
+        "x24": {
+          "value": "1.5rem",
+          "type": "dimension"
+        },
+        "x28": {
+          "value": "1.75rem",
+          "type": "dimension"
+        },
+        "x32": {
+          "value": "2rem",
+          "type": "dimension"
+        },
+        "x36": {
+          "value": "2.25rem",
+          "type": "dimension"
+        },
+        "x40": {
+          "value": "2.5rem",
+          "type": "dimension"
+        },
+        "x44": {
+          "value": "2.75rem",
+          "type": "dimension"
+        },
+        "x48": {
+          "value": "3rem",
+          "type": "dimension"
+        },
+        "x56": {
+          "value": "3.5rem",
+          "type": "dimension"
+        },
+        "x64": {
+          "value": "4rem",
+          "type": "dimension"
+        },
+        "x80": {
+          "value": "5rem",
+          "type": "dimension"
+        },
+        "x96": {
+          "value": "6rem",
+          "type": "dimension"
+        },
+        "x112": {
+          "value": "7rem",
+          "type": "dimension"
+        },
+        "x128": {
+          "value": "8rem",
+          "type": "dimension"
+        },
+        "x144": {
+          "value": "9rem",
+          "type": "dimension"
+        },
+        "x160": {
+          "value": "10rem",
+          "type": "dimension"
+        },
+        "x176": {
+          "value": "11rem",
+          "type": "dimension"
+        },
+        "x192": {
+          "value": "12rem",
+          "type": "dimension"
+        },
+        "x208": {
+          "value": "13rem",
+          "type": "dimension"
+        },
+        "x224": {
+          "value": "14rem",
+          "type": "dimension"
+        },
+        "x240": {
+          "value": "15rem",
+          "type": "dimension"
+        },
+        "x256": {
+          "value": "16rem",
+          "type": "dimension"
+        },
+        "x288": {
+          "value": "18rem",
+          "type": "dimension"
+        },
+        "x320": {
+          "value": "20rem",
+          "type": "dimension"
+        },
+        "x384": {
+          "value": "24rem",
+          "type": "dimension"
+        },
+        "x1": {
+          "value": "0.062rem",
+          "type": "dimension"
+        }
+      },
+      "custom": {
+        "xsmall3": {
+          "value": "0.125rem",
+          "type": "dimension"
+        },
+        "xsmall2": {
+          "value": "{dim.spacing.global.x4}",
+          "type": "dimension"
+        },
+        "xsmall": {
+          "value": "{dim.spacing.global.x8}",
+          "type": "dimension"
+        },
+        "small": {
+          "value": "{dim.spacing.global.x12}",
+          "type": "dimension"
+        },
+        "medium": {
+          "value": "{dim.spacing.global.x16}",
+          "type": "dimension"
+        },
+        "large": {
+          "value": "{dim.spacing.global.x20}",
+          "type": "dimension"
+        },
+        "xlarge": {
+          "value": "{dim.spacing.global.x24}",
+          "type": "dimension"
+        },
+        "xlarge2": {
+          "value": "{dim.spacing.global.x28}",
+          "type": "dimension"
+        },
+        "xlarge3": {
+          "value": "{dim.spacing.global.x32}",
+          "type": "dimension"
+        },
+        "xlarge4": {
+          "value": "{dim.spacing.global.x36}",
+          "type": "dimension"
+        }
+      }
+    },
+    "sizing": {
+      "global": {
+        "none": {
+          "value": "0rem",
+          "type": "dimension"
+        },
+        "x1": {
+          "value": "0.062rem",
+          "type": "dimension"
+        },
+        "x2": {
+          "value": "0.125rem",
+          "type": "dimension"
+        },
+        "x4": {
+          "value": "0.25rem",
+          "type": "dimension"
+        },
+        "x6": {
+          "value": "0.375rem",
+          "type": "dimension"
+        },
+        "x8": {
+          "value": "0.5rem",
+          "type": "dimension"
+        },
+        "x10": {
+          "value": "0.625rem",
+          "type": "dimension"
+        },
+        "x12": {
+          "value": "0.75rem",
+          "type": "dimension"
+        },
+        "x14": {
+          "value": "0.875rem",
+          "type": "dimension"
+        },
+        "x16": {
+          "value": "1rem",
+          "type": "dimension"
+        },
+        "x120": {
+          "value": "7.5rem",
+          "type": "dimension"
+        },
+        "x128": {
+          "value": "8rem",
+          "type": "dimension"
+        },
+        "x20": {
+          "value": "1.25rem",
+          "type": "dimension"
+        },
+        "x24": {
+          "value": "1.5rem",
+          "type": "dimension"
+        },
+        "x28": {
+          "value": "1.75rem",
+          "type": "dimension"
+        },
+        "x32": {
+          "value": "2rem",
+          "type": "dimension"
+        },
+        "x36": {
+          "value": "2.25rem",
+          "type": "dimension"
+        },
+        "x40": {
+          "value": "2.5rem",
+          "type": "dimension"
+        },
+        "x44": {
+          "value": "2.75rem",
+          "type": "dimension"
+        },
+        "x48": {
+          "value": "3rem",
+          "type": "dimension"
+        },
+        "x56": {
+          "value": "3.5rem",
+          "type": "dimension"
+        },
+        "x64": {
+          "value": "4rem",
+          "type": "dimension"
+        },
+        "x72": {
+          "value": "4.5rem",
+          "type": "dimension"
+        },
+        "x80": {
+          "value": "5rem",
+          "type": "dimension"
+        },
+        "x88": {
+          "value": "5.5rem",
+          "type": "dimension"
+        },
+        "x96": {
+          "value": "6rem",
+          "type": "dimension"
+        },
+        "x104": {
+          "value": "6.5rem",
+          "type": "dimension"
+        },
+        "x112": {
+          "value": "7rem",
+          "type": "dimension"
+        }
+      },
+      "shape": {
+        "xsmall5": {
+          "value": "{dim.sizing.global.x12}",
+          "type": "dimension"
+        },
+        "xsmall4": {
+          "value": "{dim.sizing.global.x14}",
+          "type": "dimension"
+        },
+        "xsmall3": {
+          "value": "{dim.sizing.global.x16}",
+          "type": "dimension"
+        },
+        "xsmall2": {
+          "value": "{dim.sizing.global.x20}",
+          "type": "dimension"
+        },
+        "xsmall": {
+          "value": "{dim.sizing.global.x28}",
+          "type": "dimension"
+        },
+        "small": {
+          "value": "{dim.sizing.global.x36}",
+          "type": "dimension"
+        },
+        "medium": {
+          "value": "{dim.sizing.global.x44}",
+          "type": "dimension"
+        },
+        "large": {
+          "value": "{dim.sizing.global.x56}",
+          "type": "dimension"
+        },
+        "xlarge": {
+          "value": "{dim.sizing.global.x64}",
+          "type": "dimension"
+        }
+      },
+      "icon": {
+        "xsmall3": {
+          "value": "{dim.sizing.global.x12}",
+          "type": "dimension"
+        },
+        "xsmall2": {
+          "value": "{dim.sizing.global.x14}",
+          "type": "dimension"
+        },
+        "xsmall": {
+          "value": "{dim.sizing.global.x16}",
+          "type": "dimension"
+        },
+        "small": {
+          "value": "{dim.sizing.global.x20}",
+          "type": "dimension"
+        },
+        "medium": {
+          "value": "{dim.sizing.global.x24}",
+          "type": "dimension"
+        },
+        "large": {
+          "value": "{dim.sizing.global.x28}",
+          "type": "dimension"
+        },
+        "xlarge": {
+          "value": "{dim.sizing.global.x32}",
+          "type": "dimension"
+        }
+      }
+    },
+    "opacity": {
+      "none": {
+        "value": "0rem",
+        "type": "dimension"
+      },
+      "x4": {
+        "value": "0.25rem",
+        "type": "dimension"
+      },
+      "x8": {
+        "value": "0.5rem",
+        "type": "dimension"
+      },
+      "x16": {
+        "value": "1rem",
+        "type": "dimension"
+      },
+      "x28": {
+        "value": "1.75rem",
+        "type": "dimension"
+      },
+      "x40": {
+        "value": "2.5rem",
+        "type": "dimension"
+      },
+      "x56": {
+        "value": "3.5rem",
+        "type": "dimension"
+      },
+      "x72": {
+        "value": "4.5rem",
+        "type": "dimension"
+      },
+      "x92": {
+        "value": "5.75rem",
+        "type": "dimension"
+      },
+      "x100": {
+        "value": "6.25rem",
+        "type": "dimension"
+      }
+    },
+    "lineHeight": {
+      "x100 (Use 100%)": {
+        "value": "6.25rem",
+        "type": "dimension",
+        "description": "Use 100%"
+      },
+      "x125 (Use 125%)": {
+        "value": "7.812rem",
+        "type": "dimension",
+        "description": "Use 125%"
+      },
+      "x138 (Use 138%)": {
+        "value": "8.625rem",
+        "type": "dimension",
+        "description": "Use 137,5%"
+      },
+      "x150 (Use 150%)": {
+        "value": "9.375rem",
+        "type": "dimension",
+        "description": "Use 150%"
+      },
+      "x200 (Use 200%)": {
+        "value": "12.5rem",
+        "type": "dimension",
+        "description": "Use 200%"
+      }
+    },
+    "letterSpacing": {
+      "tighter": {
+        "value": "-0.05rem",
+        "type": "dimension"
+      },
+      "tight": {
+        "value": "-0.025rem",
+        "type": "dimension"
+      },
+      "normal": {
+        "value": "0rem",
+        "type": "dimension"
+      },
+      "wide": {
+        "value": "0.025rem",
+        "type": "dimension"
+      },
+      "wider": {
+        "value": "0.05rem",
+        "type": "dimension"
+      },
+      "widest": {
+        "value": "0.1rem",
+        "type": "dimension"
+      },
+      "display": {
+        "value": "0rem",
+        "type": "dimension"
+      }
+    },
+    "fontSize": {
+      "xs": {
+        "value": "0.688rem",
+        "type": "dimension"
+      },
+      "sm": {
+        "value": "0.75rem",
+        "type": "dimension"
+      },
+      "base": {
+        "value": "0.875rem",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "1rem",
+        "type": "dimension"
+      },
+      "xl": {
+        "value": "1.25rem",
+        "type": "dimension"
+      },
+      "xl2": {
+        "value": "1.5rem",
+        "type": "dimension"
+      },
+      "xl3": {
+        "value": "1.75rem",
+        "type": "dimension"
+      },
+      "xl4": {
+        "value": "2rem",
+        "type": "dimension"
+      },
+      "xl5": {
+        "value": "2.25rem",
+        "type": "dimension"
+      },
+      "xl6": {
+        "value": "2.75rem",
+        "type": "dimension"
+      },
+      "xl7": {
+        "value": "3.5rem",
+        "type": "dimension"
+      }
+    },
+    "grid": {
+      "cols": {
+        "value": "0.25rem",
+        "type": "dimension"
+      },
+      "margin": {
+        "value": "1.25rem",
+        "type": "dimension"
+      },
+      "gutter": {
+        "value": "1rem",
+        "type": "dimension"
+      },
+      "screen": {
+        "value": "26.875rem",
+        "type": "dimension"
+      }
+    }
+  }
+}

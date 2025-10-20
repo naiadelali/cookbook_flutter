@@ -1,0 +1,7 @@
+arb-dir: lib/src/l10n
+template-arb-file: app_pt.arb
+output-localization-file: app_localizations.dart
+output-dir: lib/src/l10n/gen
+output-class: AuthLocalizations
+synthetic-package: false  # defina como false para importar o delegado no projeto principal
+nullable-getter: false

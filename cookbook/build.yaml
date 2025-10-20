@@ -1,0 +1,12 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        generate_for:
+          - "lib/**"
+          - "modules/**"
+    sources:
+      - $package$
+      - "lib/**"
+      - "test/**"
+      - "modules/**"

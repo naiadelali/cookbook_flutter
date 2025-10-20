@@ -1,0 +1,14 @@
+{
+  "explorePage": "Explore Page",
+  "homePage": "Home Page",
+  "token": "Token: ",
+  "refreshToken": "Refresh Token",
+  "logout": "Sign out",
+  "notLogged": "Não logado ou com erro",
+  "profilePage": "Profile Page",
+  "settingsPage": "Settings Page",
+  "explore": "Explore",
+  "home": "Home",
+  "profile": "Profile",
+  "settings": "Settings"
+}

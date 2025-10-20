@@ -1,0 +1,31 @@
+name: home
+description: "Home Module"
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.2"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  shared_dependencies:
+  core_common:
+  core_data:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.app.feature.home
+    iosBundleIdentifier: com.app.feature.home

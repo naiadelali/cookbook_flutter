@@ -1,0 +1,424 @@
+{
+  "color": {
+    "primary": {
+      "softest": {
+        "value": "{ref.color.primary.sample110}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.primary.sample90}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.primary.sample50}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.primary.sample60}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.primary.sample20}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.primary.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.primary.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.primary.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.primary.sample120}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.primary.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#c9abf814",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#c9abf833",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#c9abf8a3",
+        "type": "color"
+      }
+    },
+    "neutral": {
+      "alwaysWhite": {
+        "value": "{ref.color.neutral.sample10}",
+        "type": "color"
+      },
+      "alwaysBlack": {
+        "value": "{ref.color.neutral.sample130}",
+        "type": "color"
+      },
+      "softest": {
+        "value": "{ref.color.neutral.sample100}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.neutral.sample90}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.neutral.sample40}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.neutral.sample70}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.neutral.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.neutral.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.neutral.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.neutral.sample110}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.neutral.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#d5d8dc14",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#d5d8dc33",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#d5d8dca3",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.neutral.sample20}",
+        "type": "color"
+      }
+    },
+    "success": {
+      "softest": {
+        "value": "{ref.color.success.sample110}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.success.sample100}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.success.sample90}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.success.sample60}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.success.sample20}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.success.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.success.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.success.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.success.sample120}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.success.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#d0fbde14",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#d0fbde33",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#d0fbdea3",
+        "type": "color"
+      }
+    },
+    "danger": {
+      "softest": {
+        "value": "{ref.color.danger.sample110}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.danger.sample100}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.danger.sample90}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.danger.sample50}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.danger.sample30}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.danger.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.danger.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.danger.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.danger.sample120}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.danger.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#f7bac214",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#f7bac233",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#f7bac2a3",
+        "type": "color"
+      }
+    },
+    "warning": {
+      "softest": {
+        "value": "{ref.color.warning.sample110}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.warning.sample100}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.warning.sample90}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.warning.sample70}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.warning.sample20}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.warning.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.warning.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.warning.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.warning.sample120}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.warning.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#f9dfa914",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#f9dfa933",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#f9dfa9a3",
+        "type": "color"
+      }
+    },
+    "info": {
+      "softest": {
+        "value": "{ref.color.info.sample110}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.info.sample100}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.info.sample80}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.info.sample50}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.info.sample30}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.info.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.info.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.info.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.info.sample120}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.info.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#b6cbf714",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#b6cbf733",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#b6cbf7a3",
+        "type": "color"
+      }
+    },
+    "surface": {
+      "default": {
+        "value": "{ref.color.neutral.sample110}",
+        "type": "color"
+      },
+      "lowest": {
+        "value": "{ref.color.neutral.sample120}",
+        "type": "color"
+      },
+      "low": {
+        "value": "{ref.color.neutral.sample130}",
+        "type": "color"
+      },
+      "high": {
+        "value": "{ref.color.primary.sample110}",
+        "type": "color"
+      },
+      "highest": {
+        "value": "{ref.color.primary.sample90}",
+        "type": "color"
+      },
+      "colorless": {
+        "value": "#090a0b03",
+        "type": "color"
+      },
+      "opaque": {
+        "value": "#090a0b1f",
+        "type": "color"
+      },
+      "opaqueInverse": {
+        "value": "#fcfcfd29",
+        "type": "color"
+      }
+    },
+    "secondary": {
+      "softest": {
+        "value": "{ref.color.secondary.sample110}",
+        "type": "color"
+      },
+      "softer": {
+        "value": "{ref.color.secondary.sample90}",
+        "type": "color"
+      },
+      "soft": {
+        "value": "{ref.color.secondary.sample60}",
+        "type": "color"
+      },
+      "main": {
+        "value": "{ref.color.secondary.sample50}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{ref.color.secondary.sample20}",
+        "type": "color"
+      },
+      "onSoftest": {
+        "value": "{ref.color.secondary.sample20}",
+        "type": "color"
+      },
+      "onSofter": {
+        "value": "{ref.color.secondary.sample20}",
+        "type": "color"
+      },
+      "onSoft": {
+        "value": "{ref.color.secondary.sample20}",
+        "type": "color"
+      },
+      "onMain": {
+        "value": "{ref.color.secondary.sample120}",
+        "type": "color"
+      },
+      "onStrong": {
+        "value": "{ref.color.secondary.sample130}",
+        "type": "color"
+      },
+      "overlaySoft": {
+        "value": "#b5cbf714",
+        "type": "color"
+      },
+      "overlayMain": {
+        "value": "#b5cbf733",
+        "type": "color"
+      },
+      "overlayStrong": {
+        "value": "#b5cbf7a3",
+        "type": "color"
+      }
+    }
+  }
+}
