@@ -1,0 +1,120 @@
+# Criando módulos novos — package, não pasta
+
+Módulo novo **é um Flutter package completo**, não uma pasta solta com arquivos Dart.
+
+## ❌ Errado — criar só uma pasta
+
+```
+modules/feature/profile/
+├── lib/
+│   └── profile_page.dart    ← sem pubspec.yaml, sem barrel, sem module
+```
+
+Isso não é um módulo: não pode ser importado como `package:`, não aparece no workspace, não tem dependências isoladas.
+
+## ✅ Correto — criar um Flutter package
+
+Todo módulo novo precisa de:
+
+1. **`pubspec.yaml`** com `resolution: workspace` e as dependências corretas
+2. **Barrel file** (`lib/<nome>.dart`) reexportando a API pública
+3. **Arquivo de injeção** (`lib/src/<nome>_module.dart`) registrando no GetIt
+4. **Registro no workspace** do `pubspec.yaml` raiz
+5. **Estrutura interna** seguindo o padrão da arquitetura
+
+```
+modules/feature/profile/
+├── pubspec.yaml                          ← obrigatório
+├── lib/
+│   ├── profile.dart                      ← barrel file
+│   └── src/
+│       ├── profile_module.dart           ← injeção GetIt
+│       ├── navigation/
+│       │   ├── navigation.dart           ← abstração de navegação
+│       │   ├── navigation_impl.dart      ← implementação
+│       │   └── routes.dart               ← constantes de rota
+│       └── ui/
+│           ├── pages/
+│           │   └── profile_page.dart
+│           ├── state/
+│           │   ├── profile_state.dart
+│           │   └── cubit/
+│           │       └── profile_cubit.dart
+│           └── widgets/
+│               └── ...
+```
+
+## pubspec.yaml do módulo
+
+```yaml
+name: profile
+description: "Feature de perfil do usuário."
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.2"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  shared_dependencies:
+  core_common:
+  core_data:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.app.feature.profile
+    iosBundleIdentifier: com.app.feature.profile
+```
+
+## Registrar no workspace raiz (`cookbook/pubspec.yaml`)
+
+Adicionar o novo módulo em **dois lugares**:
+
+```yaml
+workspace:
+  - modules/feature/profile    # ← adicionar aqui
+
+dependencies:
+  profile:                     # ← e aqui
+```
+
+## Barrel file (`lib/profile.dart`)
+
+```dart
+export 'src/profile_module.dart';
+export 'src/navigation/routes.dart';
+```
+
+## Módulo de injeção (`lib/src/profile_module.dart`)
+
+```dart
+import 'package:shared_dependencies/shared_dependencies.dart';
+import 'package:core_common/core_common.dart';
+import 'package:core_data/core_data.dart';
+
+void profileInjection() {
+  // Navigation
+  GetIt.I.registerSingleton<ProfileNavigation>(ProfileNavigationImpl());
+
+  // Cubits
+  GetIt.I.registerFactory<ProfileCubit>(
+    () => ProfileCubit(GetIt.I(), GetIt.I()),
+  );
+}
+```
+
+Depois, chamar `profileInjection()` no `main.dart` junto com as outras feature injections.

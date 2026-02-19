@@ -1,0 +1,44 @@
+# Componentização, reutilização e testes
+
+## Componentização
+
+- Widgets genéricos ficam em `ui/shared/widgets/` ou equivalente no DS.
+- **Usar componentes existentes** antes de criar novos (ex.: `VerificationChannelOption` em vez de duplicar `AppRadioButton`).
+- Extrair padrões repetidos (ex.: card com ícone + título + subtítulo).
+- Pensar em reuso cross-fluxo (ex.: tela de validação serve para cadastro e esqueci senha).
+- **Acessibilidade**: usar `Semantics` e `SemanticsLabel` em componentes customizados; garantir ordem de foco lógica em formulários.
+
+## Testes
+
+### Estrutura
+
+- **Unit**: UseCases, Repositories, DataSources
+- **Widget**: páginas e componentes críticos
+- Mocks em `test/mocks/mocks.dart` com `mocktail`
+
+### Padrão de teste (Arrange / Act / Assert)
+
+```dart
+group('LoginUseCaseImpl', () {
+  test('should return SessionModel', () async {
+    // Arrange
+    when(() => mockRepository.login(any<LoginModel>()))
+        .thenAnswer((_) async => (mockSessionModel, null));
+
+    // Act
+    final result = await usecase.call(loginModel);
+
+    // Assert
+    expect(result, equals((mockSessionModel, null)));
+    verify(() => mockRepository.login(any<LoginModel>())).called(1);
+    verifyNoMoreInteractions(mockRepository);
+  });
+});
+```
+
+### Dicas
+
+- **Fake** para classes sem construtor default: `class FakeLoginModel extends Fake implements LoginModel {}`
+- **setUpAll** para `registerFallbackValue(FakeX())` quando usar `any<X>()`
+- **setUp** para criar mocks e instância do objeto sob teste
+- Nomenclatura: `test('should return X when Y')` ou `test('retorna X quando Y')`

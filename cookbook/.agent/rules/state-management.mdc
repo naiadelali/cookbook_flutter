@@ -1,0 +1,105 @@
+# Gerenciamento de estado (Bloc/Cubit)
+
+## Quando usar o quê na Page
+
+| Widget | Quando usar |
+|---|---|
+| `BlocConsumer` | Precisa de listener (navegação, toast, side-effect) **e** builder |
+| `BlocBuilder` | Só precisa de rebuild na UI |
+| `BlocListener` | Só precisa de side-effect, sem rebuild |
+
+## Otimizações obrigatórias
+
+- Usar `listenWhen` / `buildWhen` para evitar rebuilds desnecessários.
+- Cubit correto para o fluxo (ex.: `RegisterCubit` em PreRegister/CreatePassword, `ValidationCodeCubit` em ValidationCode).
+- Provider do cubit no nível adequado: app, rota ou página.
+
+## State pattern
+
+States usam `Equatable` e `copyWith`:
+
+```dart
+class ExampleState extends Equatable {
+  final bool isLoading;
+  final String? errorMessage;
+  final DataModel? data;
+
+  const ExampleState({this.isLoading = false, this.errorMessage, this.data});
+
+  @override
+  List<Object?> get props => [isLoading, errorMessage, data];
+
+  ExampleState copyWith({bool? isLoading, String? errorMessage, DataModel? data}) {
+    return ExampleState(
+      isLoading: isLoading ?? this.isLoading,
+      errorMessage: errorMessage ?? this.errorMessage,
+      data: data ?? this.data,
+    );
+  }
+}
+```
+
+**Limpar campo nullable**: o padrão `param ?? this.param` não distingue "não passou" de "passou null para limpar". Para zerar um campo (ex.: `errorMessage` após sucesso), use um método dedicado no Cubit (`clearError()`) ou um wrapper `Optional<T>`.
+
+## Responsabilidades — Page vs Cubit
+
+### Page (cockpit + passageiro)
+
+- **Só UI**: layout, widgets, formulários.
+- **Chama métodos do Cubit** para ações do usuário.
+- **Não contém lógica de negócio.**
+- Validações de formulário (formato de e-mail, campo vazio) ficam na Page.
+
+```dart
+// ✅ Correto — Page chama método do Cubit
+onPressed: () {
+  if (_formKey.currentState!.validate()) {
+    _formKey.currentState!.save();
+    cubit.login(_email!, _password!);
+  }
+}
+
+// ❌ Errado — Page emitindo estado
+context.read<SignInCubit>().emit(state.copyWith(isLoading: true));
+```
+
+### Cubit (piloto)
+
+- **Orquestra UseCases** e navegação.
+- **Emite estado** via `emit` (só internamente).
+- **Não conhece widgets** nem `BuildContext`.
+- Regras de negócio ficam no UseCase; Cubit só coordena.
+
+```dart
+// ✅ Padrão correto de Cubit
+Future<void> login(String email, String password) async {
+  emit(state.copyWith(isLoading: true));
+
+  final result = await _loginUseCase.call(LoginModel(email: email, password: password));
+
+  if (result.$1 != null) {
+    emit(state.copyWith(session: result.$1, isLoading: false));
+    _appNavigation.goToHome();
+  } else {
+    emit(state.copyWith(errorMessage: result.$2!.message, isLoading: false));
+  }
+}
+```
+
+## Quando usar setState vs Cubit + emit
+
+| Situação | Usar | Por quê |
+|---|---|---|
+| Dados de UseCase (login, API, loading, erro) | `Cubit + emit` | Estado compartilhável e testável |
+| Dropdown aberto/fechado | `setState` | Estado visual local |
+| Animação de botão, foco de campo | `setState` | Só importa naquela tela |
+| TextEditingController, FocusNode | `setState` / `StatefulWidget` | Controle local da UI |
+
+**Regra de ouro**: se vem de UseCase ou precisa ser testado/compartilhado → Cubit. Se é visual/local e some ao sair da tela → setState.
+
+## Métodos do Cubit
+
+- **Responsabilidade única**: cada método faz uma coisa só.
+- **Nome honesto**: `sendValidationCode` só envia código, não valida nem navega.
+- **Navegação concentrada**: usar `_navigation.goToX()` via abstração.
+- **Sem lógica de UI** no cubit (formatação de data para exibição fica na Page ou em helper).

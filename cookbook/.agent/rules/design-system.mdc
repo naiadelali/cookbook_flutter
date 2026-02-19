@@ -1,0 +1,108 @@
+# Design System (DS) — Componentes e Tokens
+
+## Componentes
+
+Sempre usar os componentes do DS em vez de widgets genéricos do Flutter.
+
+| Necessidade | Usar (DS) | NÃO usar |
+|---|---|---|
+| Botão | `AppButton` | `ElevatedButton`, `TextButton` |
+| Botão com ícone | `AppButton` com parâmetro de ícone | `IconButton` genérico |
+| Campo de texto | `AppTextField` | `TextField`, `TextFormField` |
+| Campo de senha | `AppTextField.password` | `TextField` com obscureText manual |
+| Alerta/feedback | `AppAlert`, `AppToast` | `SnackBar` genérico |
+| Radio button | `AppRadioButton` | `Radio` genérico |
+| Checkbox | `AppCheckbox` | `Checkbox` genérico |
+| Divider | `AppDivider` | `Divider` genérico |
+| Link | `AppLink` | `GestureDetector` com Text |
+| Switch | `AppSwitch` | `Switch` genérico |
+| Badge | `AppBadge` | Container customizado |
+| Progress indicator | `AppProgressIndicator` | `CircularProgressIndicator` genérico |
+
+### AppButton — variantes disponíveis
+
+- **Aparências**: solid, soft, outline, ghost, surface
+- **Cores**: principal, neutral, success, danger
+- **Tamanhos**: medium, small
+- Suporta: ícones, badges, loading state
+
+## Tokens
+
+**Nunca usar valores mágicos.** Sempre usar tokens do DS.
+
+### Tipografia — `AppTypography`
+
+Padrão: `{categoria}{peso}{tamanho}`
+
+```dart
+// ✅ Correto
+style: AppTypography.titleNormalMedium
+
+// ❌ Errado
+style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)
+```
+
+Categorias: `display`, `title`, `subtitle`, `body`, `label`
+Pesos: `Normal`, `Thin`
+Tamanhos: `Large`, `Medium`, `Small`, `Nano` (label)
+
+### Espaçamento — `AppSpacing`
+
+```dart
+// ✅ Correto
+SizedBox(height: AppSpacing.x16)
+padding: EdgeInsets.all(AppSpacing.x24)
+
+// ❌ Errado
+SizedBox(height: 16)
+padding: EdgeInsets.all(24)
+```
+
+Valores disponíveis: `none`, `x4`, `x8`, `x12`, `x16`, `x20`, `x24`, `x28`, `x32`, `x36`, `x40`, `x44`, `x48`, `x56`, `x64`, `x80`, `x96`, `x112`, `x128` e mais.
+
+Semânticos: `xsmall3`(2), `xsmall2`(4), `xsmall`(8), `small`(12), `medium`(16), `large`(20), `xlarge` e variantes.
+
+### Cores — `AppColor`
+
+```dart
+// ✅ Correto
+color: AppColor.primary.main
+color: AppColor.neutral.strong
+color: AppColor.danger.main
+color: AppColor.surface.lowest
+
+// ❌ Errado
+color: Colors.blue
+color: Color(0xFF1A1A1A)
+```
+
+Grupos: `primary`, `secondary`, `success`, `warning`, `danger`, `info`, `neutral`, `surface`
+Cada grupo tem: `softest`, `softer`, `soft`, `main`, `strong` + variantes `on*` para texto sobre fundo.
+
+### Raio — `AppRadius`
+
+```dart
+// ✅ Correto
+borderRadius: BorderRadius.circular(AppRadius.x12)
+borderRadius: BorderRadius.circular(AppRadius.fields)
+
+// ❌ Errado
+borderRadius: BorderRadius.circular(12)
+```
+
+Valores: `x2`, `x4`, `x6`, `x8`, `x12`, `x16`, `x24`, `full`(9999), `none`
+Semânticos: `buttons`(x6), `fields`(x6), `tags`(full), `drops`(x8), `containers`(x8), `dialogs`(x8)
+
+### Sizing — `AppSizing`
+
+```dart
+// ✅ Correto
+width: AppSizing.x64
+height: AppSizing.iconXlarge
+
+// ❌ Errado
+width: 64
+```
+
+Valores numéricos: `x1` a `x128`
+Semânticos: `shapeXsmall5` a `shapeXlarge`, `iconXsmall3` a `iconXlarge`

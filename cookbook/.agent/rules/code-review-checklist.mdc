@@ -1,0 +1,21 @@
+# Checklist rápido para code review
+
+Antes de abrir PR, verificar:
+
+- [ ] Imports agrupados (dart → package → relativo) e usando barrels
+- [ ] Page não importa `core_data`; usa `shared_dependencies` e `core_common`
+- [ ] `BlocConsumer` / `BlocBuilder` / `BlocListener` usado corretamente
+- [ ] `listenWhen` / `buildWhen` aplicados onde faz sentido
+- [ ] Page não chama `emit` — só métodos públicos do Cubit
+- [ ] Page não tem lógica de negócio
+- [ ] Cubit não conhece BuildContext nem widgets
+- [ ] Métodos do Cubit com responsabilidade única e nome honesto
+- [ ] Componentes do DS usados (AppButton, AppTextField, etc.) em vez de genéricos
+- [ ] Tokens do DS usados (AppTypography, AppSpacing, AppColor, AppRadius) em vez de valores mágicos
+- [ ] Widgets reutilizáveis extraídos quando há padrão repetido
+- [ ] Navegação via abstração injetada, não Navigator direto
+- [ ] Módulo novo é um package completo (pubspec.yaml, barrel, module de injeção) — não apenas uma pasta
+- [ ] Módulo novo registrado no workspace e dependencies do `pubspec.yaml` raiz
+- [ ] Módulo novo com injection chamado no `main.dart`
+- [ ] Erros retornados como Failure na tupla, não como throw
+- [ ] Testes de UseCase/Repository com mocktail (Arrange/Act/Assert)

@@ -1,0 +1,100 @@
+# Arquitetura — Clean Architecture modular
+
+Monorepo Flutter com Clean Architecture modular. Cada camada tem responsabilidade clara e dependências unidirecionais.
+
+## Estrutura do projeto
+
+```
+cookbook/
+├── lib/                        # App principal (entry point, GoRouter, DI)
+├── modules/
+│   ├── core/
+│   │   ├── common/             # Models, navigation, failures, helpers, base cubit
+│   │   ├── data/               # Repositories concretos, UseCases
+│   │   ├── database/           # SharedPreferences, SecureStorage
+│   │   └── network/            # Dio, interceptors, datasources HTTP
+│   ├── feature/
+│   │   ├── auth/               # Feature de autenticação
+│   │   └── home/               # Feature home (bottom nav)
+│   ├── ds/                     # Design System (tokens + componentes)
+│   └── shared_dependencies/    # Barrel de dependências compartilhadas
+```
+
+## Packages
+
+| Package | Caminho |
+|---|---|
+| `core_common` | `modules/core/common` |
+| `core_data` | `modules/core/data` |
+| `core_network` | `modules/core/network` |
+| `core_database` | `modules/core/database` |
+| `ds` | `modules/ds` |
+| `shared_dependencies` | `modules/shared_dependencies` |
+| `auth` | `modules/feature/auth` |
+| `home` | `modules/feature/home` |
+
+## Camadas (analogia do carro)
+
+| Camada | Responsabilidade | Analogia |
+|---|---|---|
+| **DataSource** | Chamadas HTTP / storage local | Motor (onde a combustão acontece) |
+| **Repository** | Usa DataSource, adapta dados | Câmbio (liga motor às rodas) |
+| **UseCase** | Regra de negócio, um caso de uso | Pedal do acelerador (comando único) |
+| **Cubit** | Chama UseCase, emite estado | Piloto (pisa no pedal, lê o painel) |
+| **Page** | Mostra UI, reage ao estado, chama métodos do Cubit | Cockpit + passageiro (dá ordens) |
+
+O Cubit **nunca** chama API/DataSource diretamente — sempre via UseCase.
+A Page **nunca** chama `emit` — só chama métodos públicos do Cubit.
+
+## Convenções de nomenclatura
+
+| Elemento | Padrão | Exemplo |
+|---|---|---|
+| **Arquivos** | `snake_case` | `sign_in_page.dart`, `profile_cubit.dart` |
+| **Classes** | Sufixo por tipo | `SignInCubit`, `SignInState`, `ProfilePage`, `LoginUsecase`, `AuthRepository` |
+| **Rotas** | Classe com constantes estáticas | `AuthRoutes.login`, `HomeRoutes.profile` |
+| **Rotas (path)** | kebab-case com `/` | `/auth`, `/auth/simple-completion`, `/home/profile` |
+| **Mocks** | Prefixo `Mock` ou `Fake` | `MockAuthRepository`, `FakeLoginModel` |
+
+## UseCase pattern
+
+Cada UseCase tem responsabilidade única e retorna uma tupla `(Success?, Failure?)`:
+
+```dart
+abstract class LoginUsecase {
+  Future<(SessionModel?, AuthFailure?)> call(LoginModel model);
+}
+
+class LoginUsecaseImpl implements LoginUsecase {
+  final AuthRepository _repository;
+  LoginUsecaseImpl(this._repository);
+
+  @override
+  Future<(SessionModel?, AuthFailure?)> call(LoginModel model) async =>
+      await _repository.login(model);
+}
+```
+
+## Tratamento de erros (Failure)
+
+Erros fluem como Failure tipado, nunca como exceção genérica.
+
+```dart
+// core_common — base
+abstract class BaseFailure {
+  final String message;
+  BaseFailure(this.message);
+}
+
+// Por domínio
+class AuthFailure extends BaseFailure {
+  AuthFailure(super.message);
+}
+```
+
+Fluxo: DataSource captura exceção → Repository repassa/adapta → UseCase retorna tupla → Cubit emite estado → Page exibe feedback.
+
+Regras:
+- **Nunca** fazer `throw` de erros de negócio — sempre retornar Failure na tupla.
+- Mensagem do Failure deve ser legível para o usuário.
+- Cada feature pode ter seu Failure específico (`AuthFailure`, `ProfileFailure`, etc.).

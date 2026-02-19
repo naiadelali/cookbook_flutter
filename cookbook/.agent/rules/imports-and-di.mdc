@@ -1,0 +1,76 @@
+# Imports e Injeção de dependências
+
+## Imports — ordem e organização
+
+Agrupar imports nesta ordem, separados por linha em branco:
+
+```dart
+// 1. dart:
+import 'dart:async';
+
+// 2. package:
+import 'package:shared_dependencies/shared_dependencies.dart';
+import 'package:core_common/core_common.dart';
+
+// 3. imports relativos
+import '../widgets/my_widget.dart';
+```
+
+### Regras
+
+- **Usar barrel files** quando existirem: `package:auth/auth.dart` em vez de `package:auth/src/...`
+- **Sem imports circulares** entre módulos.
+- **Page/Widget importa apenas o necessário**: nunca `core_data` na UI — isso fica nos cubits.
+- **`shared_dependencies`** para DS e bloc; **`core_common`** para utils, models e validações.
+
+## Navegação
+
+Navegação é feita via abstrações injetadas no Cubit.
+
+```dart
+// Definição da abstração (core_common)
+abstract class AppNavigation {
+  void goToAuth();
+  void goToHome();
+}
+
+// Cada feature tem sua própria abstração
+abstract class AuthNavigation {
+  void goToRegister();
+  void goToValidationCode();
+}
+```
+
+- Cubits recebem a abstração via construtor (DI com GetIt).
+- Implementações usam `RouterNavigation.push(...)` com `GoRouter`.
+- **Nunca usar `Navigator.push` diretamente** — sempre via abstração.
+
+### Rotas
+
+Cada feature define uma classe de rotas com constantes estáticas:
+
+```dart
+class AuthRoutes {
+  AuthRoutes._();
+  static const login = '/auth';
+  static const register = '$login/simple-completion';
+}
+
+// Para rotas aninhadas, use extension removeBase
+extension _Navigation on String {
+  String get removeBase => replaceFirst('${AuthRoutes.login}/', '');
+}
+```
+
+## Injeção de dependências (GetIt)
+
+Ordem de inicialização em `main.dart`:
+
+1. `coreDatabaseInjection()` — storage local (async)
+2. `coreNetworkInjection()` — HTTP client
+3. `coreDataInjection()` — repositories e use cases
+4. Feature injections (`authInjection()`, `homeInjection()`)
+
+Padrões:
+- `registerSingleton<T>` — instância única (navegação, Dio)
+- `registerLazySingleton<T>` — singleton lazy (repositories, use cases)
